@@ -64,10 +64,10 @@ public class Filme {
     }
 
     public String toString() {
-        return "Filme{" +
-                "titulo='" + titulo + '\'' +
-                ", anoDeLancamento=" + anoDeLancamento +
-                ", genero='" + genero + '\'' +
+        return "Todos os filmes:" +
+                "\nTítulo: '" + titulo + '\'' +
+                ", Ano de Lancamento: " + anoDeLancamento +
+                ", Gênero: '" + genero + '\'' +
                 '}';
     }
 }

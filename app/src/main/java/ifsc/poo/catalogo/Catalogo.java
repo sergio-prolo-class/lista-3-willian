@@ -11,12 +11,31 @@ public class Catalogo {
         filmes = new HashSet<>();
     }
 
-    public boolean adicionarFilme(Filme filme) {
-        return filmes.add(filme);
+    public void adicionarFilme(Filme filme) {
+        
+        if (filmes.contains(filme)) {
+            System.out.println("Inválido. Este filme já está no catálogo.");
+        } else {
+            filmes.add(filme);
+            System.out.println("Filme adicionado.");
+        }
+
     }
 
-    public boolean removerFilme(String titulo) {
-        return filmes.removeIf(filme -> filme.getTitulo().equalsIgnoreCase(titulo));
+    public void removerFilme(String titulo) {
+
+        boolean removido = filmes.removeIf(filme -> filme.getTitulo().equalsIgnoreCase(titulo));
+
+        if (removido) {
+            System.out.println("Filme removido.");
+        } else {
+            System.out.println("Inválido. Filme não encontrado.");
+        }
+        
+    }
+
+    public void listarTodosFilmesPorTitulo() {
+        filmes.forEach(System.out::println);
     }
 
 }
