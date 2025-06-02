@@ -6,11 +6,15 @@ public class Filme {
     private int anoDeLancamento;
     private String genero;
 
+    private static final String TITULO_PADRAO = "Título indefinido";
+    private static final int ANO_DE_LANCAMENTO_PADRAO = 0;
+    private static final String GENERO_PADRAO = "Gênero indefinido";
+
     public Filme(String titulo, int anoDeLancamento, String genero) {
 
-        this.titulo = titulo;
-        this.anoDeLancamento = anoDeLancamento;
-        this.genero = genero;
+        this.validarTitulo(titulo);
+        this.validarAnoDeLancamento(anoDeLancamento);
+        this.validarGenero(genero);
     }
 
     public String getTitulo() {
@@ -26,31 +30,37 @@ public class Filme {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        validarTitulo(titulo);
     }
 
     public void setAnoDeLancamento(int anoDeLancamento) {
-        this.anoDeLancamento = anoDeLancamento;
+        validarAnoDeLancamento(anoDeLancamento);
     }
 
     public void setGenero(String genero) {
-        this.genero = genero;
+        validarGenero(genero);
     }
 
     public void validarTitulo(String titulo) {
-
+        if (titulo.trim().isEmpty()) {
+            this.titulo = TITULO_PADRAO;
+        }
+        this.titulo = titulo;
     }
 
     public void validarAnoDeLancamento(int anoDeLancamento) {
-
         if (anoDeLancamento < 0) {
-            this.anoDeLancamento = 0;
+            this.anoDeLancamento = ANO_DE_LANCAMENTO_PADRAO;
         }
+        this.anoDeLancamento = anoDeLancamento;
 
     }
 
     public void validarGenero(String genero) {
-
+        if (genero.trim().isEmpty()) {
+            this.genero = GENERO_PADRAO;
+        }
+        this.genero = genero;
     }
 
     public String toString() {
